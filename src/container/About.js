@@ -12,7 +12,7 @@ export const About = () => {
 
     useEffect(async () => {
         let res = await axios.get(`${L_URL}/list`);
-        console.log(res.data);
+        console.log(res);
         if(res.status === 200){
             setGridApi([...res.data])
             setGridColumnApi([...res.data])
@@ -21,15 +21,19 @@ export const About = () => {
     }, []);
 
     return (
-        <div className="ag-theme-alpine" style={{ height: 400, width: 1050, textAlign: 'center' }}>
+        <>
+        <br/>
+        <h1 style={{textAlign: 'center'}} className="text-success">이현주 게시판</h1>
+        <br/>
+        <div className="ag-theme-alpine" style={{ width: 1100, height: 400, textAlign: 'center', justifyContent: 'center' }}>
             <AgGridReact
                 rowData={rowData}>
-                <AgGridColumn field="rn" headerName="NO" width={80}></AgGridColumn>
-                <AgGridColumn field="title" headerName="TITLE" width={150}></AgGridColumn>
-                <AgGridColumn field="writer" headerName="WRITER" width={150}></AgGridColumn>
-                <AgGridColumn field="regDt" headerName="DATE"></AgGridColumn>
-                <AgGridColumn field="content" headerName="CONTENT" width={500}></AgGridColumn>
+                <AgGridColumn field="rn" headerName="NO" width={100}></AgGridColumn>
+                <AgGridColumn field="title" headerName="TITLE" width={350}></AgGridColumn>
+                <AgGridColumn field="writer" headerName="WRITER" width={250}></AgGridColumn>
+                <AgGridColumn field="regDt" headerName="DATE" width={400}></AgGridColumn>
             </AgGridReact>
         </div>
+        </>
     )
 }
