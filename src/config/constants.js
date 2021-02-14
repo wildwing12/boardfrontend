@@ -1,0 +1,1 @@
+export const K_URL="http://localhost:8011/kboard";
