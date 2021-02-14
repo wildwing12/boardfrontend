@@ -11,6 +11,7 @@ function App() {
       <Container>
         <Route path="/" component={Home} exact />
         <Route path="/about" exact={true} component={About} />
+        <Route path="/kwrite" exact={true} component={About} />
       </Container>
     </div>
   );
