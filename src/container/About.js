@@ -13,9 +13,11 @@ export const About = () => {
     useEffect(async () => {
         let res = await axios.get(`${L_URL}/list`);
         console.log(res.data);
-        setGridApi([...res.data])
-        setGridColumnApi([...res.data])
-        setRowData([...res.data]);
+        if(res.status === 200){
+            setGridApi([...res.data])
+            setGridColumnApi([...res.data])
+            setRowData([...res.data]);
+        }
     }, []);
 
     return (
